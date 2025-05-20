@@ -1,0 +1,207 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Weather App</title>
+  <meta name="description" content="Modern Weather Application" />
+  <meta name="author" content="Weather App Team" />
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <!-- Left panel with background image and main temperature -->
+    <div class="left-panel">
+      <div class="overlay">
+        <!-- Snow effect -->
+        <div class="snow-container" id="snow-container"></div>
+        
+        <div class="content">
+          <!-- Logo -->
+          <div class="logo">
+            <span class="logo-text">WW</span>
+            <span class="logo-icon">↯</span>
+          </div>
+          
+          <!-- Temperature and location -->
+          <div class="temp-info">
+            <div class="temp-display">
+              <span class="temperature" id="temperature">16°</span>
+              <div class="weather-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-cloudy">
+                  <path d="M17.5 21H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"></path>
+                  <path d="M22 10a3 3 0 0 0-3-3h-2.207a5.502 5.502 0 0 0-10.702.5"></path>
+                </svg>
+              </div>
+            </div>
+            <div class="location" id="location">London</div>
+            <div class="datetime" id="datetime">06:09 - Monday, 9 Sep '23</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Right panel with weather details -->
+    <div class="right-panel">
+      <div class="content">
+        <!-- Search bar -->
+        <form class="search-form" id="search-form">
+          <input 
+            type="text" 
+            placeholder="Search Location..." 
+            id="search-input"
+            class="search-input"
+          />
+          <button type="submit" class="search-button">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="search-icon">
+              <circle cx="11" cy="11" r="8"></circle>
+              <path d="m21 21-4.3-4.3"></path>
+            </svg>
+          </button>
+        </form>
+        
+        <!-- Weather details -->
+        <div class="weather-details">
+          <h3 class="section-title">Weather Details...</h3>
+          <h2 class="weather-condition" id="weather-condition">THUNDERSTORM WITH LIGHT DRIZZLE</h2>
+          
+          <div class="detail-list">
+            <div class="detail-item">
+              <span class="detail-label">Temp max</span>
+              <div class="detail-value">
+                <span id="temp-max">19°</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-red">
+                  <path d="M12 2v10.5"></path>
+                  <path d="M12 14a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"></path>
+                  <path d="M12 22V20"></path>
+                  <path d="M8 16.9v-2.1a4 4 0 0 1 8 0v2.1"></path>
+                </svg>
+              </div>
+            </div>
+            
+            <div class="detail-item">
+              <span class="detail-label">Temp min</span>
+              <div class="detail-value">
+                <span id="temp-min">15°</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-blue">
+                  <path d="M12 2v10.5"></path>
+                  <path d="M12 14a2 2 0 1 0 0 4a2 2 0 0 0 0-4z"></path>
+                  <path d="M12 22V20"></path>
+                  <path d="M8 16.9v-2.1a4 4 0 0 1 8 0v2.1"></path>
+                </svg>
+              </div>
+            </div>
+            
+            <div class="detail-item">
+              <span class="detail-label">Feels like</span>
+              <div class="detail-value">
+                <span id="feels-like">17°</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-orange">
+                  <path d="M14 4v10.54a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0Z"></path>
+                </svg>
+              </div>
+            </div>
+            
+            <div class="detail-item">
+              <span class="detail-label">Humidity</span>
+              <div class="detail-value">
+                <span id="humidity">58%</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-blue">
+                  <path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"></path>
+                </svg>
+              </div>
+            </div>
+            
+            <div class="detail-item">
+              <span class="detail-label">Cloudy</span>
+              <div class="detail-value">
+                <span id="cloudiness">86%</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-gray">
+                  <path d="M17.5 21H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"></path>
+                  <path d="M22 10a3 3 0 0 0-3-3h-2.207a5.502 5.502 0 0 0-10.702.5"></path>
+                </svg>
+              </div>
+            </div>
+            
+            <div class="detail-item">
+              <span class="detail-label">Wind</span>
+              <div class="detail-value">
+                <span id="wind-speed">5km/h</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-gray">
+                  <path d="M17.7 7.7a2.5 2.5 0 1 1 1.8 4.3H2"></path>
+                  <path d="M9.6 4.6A2 2 0 1 1 11 8H2"></path>
+                  <path d="M12.6 19.4A2 2 0 1 0 14 16H2"></path>
+                </svg>
+              </div>
+            </div>
+            
+            <div class="detail-item">
+              <span class="detail-label">UV Index</span>
+              <div class="detail-value">
+                <span id="uv-index">0</span>
+                <span id="uv-status" class="status-label">(Low)</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-yellow">
+                  <circle cx="12" cy="12" r="4"></circle>
+                  <path d="M12 2v2"></path>
+                  <path d="M12 20v2"></path>
+                  <path d="M4.93 4.93l1.41 1.41"></path>
+                  <path d="M17.66 17.66l1.41 1.41"></path>
+                  <path d="M2 12h2"></path>
+                  <path d="M20 12h2"></path>
+                  <path d="M6.34 17.66l-1.41 1.41"></path>
+                  <path d="M19.07 4.93l-1.41 1.41"></path>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Air Quality section -->
+        <div class="air-quality-section">
+          <h3 class="section-title">Air Quality...</h3>
+          <div class="air-quality-main">
+            <div class="air-quality-header">
+              <span class="air-quality-status" id="air-quality-status">Good</span>
+              <span class="air-quality-value" id="air-quality-value">1</span>
+            </div>
+            <p class="air-quality-desc" id="air-quality-desc">Air quality is suitable for outdoor activity.</p>
+            <div class="air-quality-bar-container">
+              <div class="air-quality-bar" id="air-quality-bar"></div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Separator -->
+        <div class="separator"></div>
+        
+        <!-- Today's forecast -->
+        <div class="forecast">
+          <h3 class="section-title">Today's Weather Forecast...</h3>
+          
+          <div class="forecast-list" id="forecast-list">
+            <!-- Forecast items will be dynamically added here -->
+          </div>
+        </div>
+        
+        <!-- Separator -->
+        <div class="separator"></div>
+        
+        <!-- Weekly forecast -->
+        <div class="forecast">
+          <h3 class="section-title">7-Day Weather Forecast...</h3>
+          
+          <div class="weekly-forecast-list" id="weekly-forecast">
+            <!-- Weekly forecast items will be dynamically added here -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Added the required Lovable script tag -->
+  <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
+  <script src="script.js"></script>
+</body>
+</html>
